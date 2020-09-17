@@ -8,10 +8,9 @@ let personaSchema = new Schema({
         type: String,
         required: [true, 'El nombre es necesario.']
     },
-    email:{
+    apellido:{
         type:String,
-        unique: true,
-        required: [true, 'El email es necesario.']
+        required: [true, 'El apellido es necesario.']
     }
 });
 

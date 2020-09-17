@@ -4,7 +4,9 @@ var Schema = mongoose.Schema;
 
 var usuarioSchema = new Schema({
     email:{ type:String, required:[true, 'el correo es necesario'] },
-    password: { type: String, required: [true, 'el password es necesario']}
+    password: { type: String, required: [true, 'el password es necesario']},
+    persona:{type: Schema.Types.ObjectId, ref: 'Persona'},
+    rol: {type: Schema.Types.String, ref:'Roles'}
 })
 
 //Funcion que no muestra el password cuando se llama un usuario

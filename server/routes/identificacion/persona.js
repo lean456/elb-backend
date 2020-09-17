@@ -32,13 +32,14 @@ app.post('/persona',(req, res) => {
 
     let persona = new Persona({
         nombre: body.nombre,
-        email: body.email
+        apellido: body.apellido
     });
     persona.save( (err, personaDB) => {
         if(err) {
             return res.status(400).json({
                 ok:false,
                 message: 'no se guardo persona',
+                persona,
                 err
             })
         }
@@ -53,7 +54,7 @@ app.post('/persona',(req, res) => {
 
 app.put('/persona/:id', (req, res) => {
     let id = req.params.id;
-    let body = _.pick(req.body, ['nombre', 'email']);
+    let body = _.pick(req.body, ['nombre', 'apellido']);
 
     Persona.findByIdAndUpdate(id, body, {new: true, runValidators: true, useFindAndModify: false}, (err, personaDB) => {
         if( err){

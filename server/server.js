@@ -4,8 +4,10 @@ const express = require('express')
 const mongoose = require('mongoose');
 const app = express()
 const bodyParser = require('body-parser');
+var cors = require('cors')
 
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
